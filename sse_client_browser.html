@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>SSE client demo</h1>
+<code id="result"></code>
+
+<script>
+    if(typeof(EventSource) !== "undefined") {
+        var d = new Date();
+        d.setHours(d.getHours() - 1);
+        var source = new EventSource("http://localhost:3000/sncb/events?lastSyncTime=" + d.toISOString());
+        source.onmessage = function(e) {
+            document.getElementById("result").innerHTML += e.data + "<br><br>";
+            var pageURI = JSON.parse(e.data)['@id'];
+            d = new Date(pageURI.substring(pageURI.indexOf('?') + 1 ).split('=')[1]); // Parse query string and get lastSyncTime
+            console.log('Updated last sync time to:' + d.toISOString());
+        };
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Server-Sent Events...";
+    }
+</script>
+
+</body>
+</html>

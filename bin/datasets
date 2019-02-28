@@ -3,10 +3,10 @@
 /**
  * Module dependencies.
  */
-const DataserManager = require('../lib/manager/dataset_manager');
+const DatasetManager = require('../lib/manager/dataset_manager');
 
 /**
  * Start dataset managing process
  */
-var manager = new DataserManager();
+var manager = new DatasetManager();
 manager.manage();
