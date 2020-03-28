@@ -28,7 +28,7 @@
     "graceful-fs": "^4.2.3",
     "gtfs2lc": "^1.0.4",
     "gtfsrt2lc": "^1.4.3",
-    "jsonld": "^2.0.2",
+    "jsonld": "^3.0.0",
     "jsonld-stream": "^1.0.3",
     "md5": "^2.2.1",
     "morgan": "^1.9.1",
